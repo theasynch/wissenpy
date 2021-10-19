@@ -3,3 +3,4 @@ discord_components==2.1.1
 psutil==5.8.0
 pillow==8.3.2
 requests==2.26.0
+youtube_dl==2021.6.6
