@@ -1,1 +1,2 @@
 discord==1.7.3
+discord_components==2.1.1
