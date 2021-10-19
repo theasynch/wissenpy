@@ -1,1 +1,1 @@
-worker : python wissen.py
+worker: python wissen.py
