@@ -57,7 +57,7 @@ async def stats(ctx):
     users = len(client.users)
     global ts, tm, th, td
     embed = discord.Embed(title='Stats from `Wissen', color=0x4b33d3)
-    embed.add_field(name = 'General Stats', value = f"```yaml\n Servers: {guild}\n Users: {users}\n Latency: {client.latency}\n Prefix: w? \n Client Version: v1.0.7\n Pycord Version: v1.7.3",inline = False)
+    embed.add_field(name = 'General Stats', value = f"```yaml\n Servers: {guild}\n Users: {users}\n Latency: {client.latency}\n Prefix: w? \n Client Version: v1.1.2\n Pycord Version: v1.7.3",inline = False)
     embed.add_field(name = "Server Stats", value = f"```yaml\n OS: Windows\n CPU Usage: {psutil.cpu_percent()}%\n RAM Usage: {psutil.virtual_memory()[2]}%")
     await ctx.send(embed=embed)
 @client.event
