@@ -53,11 +53,12 @@ async def beforeuptimeCounter():
 
 @client.command()
 async def stats(ctx):
+    latency = client.latency
     guild = len(client.guilds)
     users = len(client.users)
     global ts, tm, th, td
     embed = discord.Embed(title='Stats from `Wissen`', color=0x4b33d3)
-    embed.add_field(name = 'General Stats', value = f"```yaml\n Servers: {guild}\n Users: {users}\n Latency: round(int{client.latency},2)\n Prefix: w? \n Client Version: v1.1.4\n Pycord Version: v1.7.3\n```",inline = False)
+    embed.add_field(name = 'General Stats', value = f"```yaml\n Servers: {guild}\n Users: {users}\n Latency: round(int{latency},2)\n Prefix: w? \n Client Version: v1.1.7\n Pycord Version: v1.7.3\n```",inline = False)
     embed.add_field(name = "Server Stats", value = f"```yaml\n OS: Windows\n CPU Usage: {psutil.cpu_percent()}%\n RAM Usage: {psutil.virtual_memory()[2]}%\n```")
     await ctx.send(embed=embed)
 @client.event
