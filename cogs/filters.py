@@ -15,7 +15,7 @@ class Filters(commands.Cog):
     async def invert(self, ctx, member: discord.Member = None):
         if member == None:
             member = ctx.author
-        asset = member.avatar_url_as(size = 128)
+        asset = member.avatar_url_as()
         data = BytesIO(await asset.read())
         profilepic = Image.open(data)
         inverted = ImageOps.invert(profilepic)
