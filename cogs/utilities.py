@@ -4,6 +4,7 @@ from PIL import Image, ImageFont, ImageDraw
 import requests
 from discord.ext import commands
 import asyncio
+import string
 
 class Utilities(commands.Cog):
 
@@ -88,10 +89,17 @@ class Utilities(commands.Cog):
 
         await ctx.author.send(embed=time_over)
 
+    @commands.command()
+    async def caeser_cipher(self, ctx, text, shift, alphabets):
+        def shift_alphabet(alphabet):
+            return alphabet[shift:] + alphabet[:shift]
 
+        shifted_alphabet = tuple(map(shift_alphabet, alphabets))
+        final_alphabet = ''.join(alphabets)
+        final_shifted_alphabet = ''.join(shifted_alphabet)
+        table = str.maketrans(final_alphabet, final_shifted_alphabet)
+        return text.translate(table)
 
-
-    
 
 
 
