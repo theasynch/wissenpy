@@ -13,7 +13,7 @@ class Filters(commands.Cog):
 
     @commands.command()
     async def invert(self, ctx, member: discord.Member = None):
-        for img in ctx.message.attachments():
+        for img in ctx.message.attachments:
             image = img
         if member == None:
             member = ctx.author
