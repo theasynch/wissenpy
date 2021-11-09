@@ -13,6 +13,7 @@ class Filters(commands.Cog):
 
     @commands.command()
     async def invert(self, ctx, member: discord.Member = None):
+        global asset
         if ctx.message.attachments == None:
             return
         if member == None:
