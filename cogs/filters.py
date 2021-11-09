@@ -15,7 +15,7 @@ class Filters(commands.Cog):
     async def invert(self, ctx, member: discord.Member = None):
         for img in ctx.message.attachments:
             image = img
-        if member == None:
+        if member == None and ctx.message.attachments == None:
             member = ctx.author
             image = member.avatar_url_as()
         asset = image
