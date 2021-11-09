@@ -13,7 +13,9 @@ class Filters(commands.Cog):
 
     @commands.command()
     async def invert(self, ctx, member: discord.Member = None):
-        if member == None and ctx.message.attachments == None:
+        if ctx.message.attachments == None:
+            return
+        if member == None:
             member = ctx.author
             image = member.avatar_url_as()
         for img in ctx.message.attachments:
