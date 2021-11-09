@@ -13,9 +13,12 @@ class Filters(commands.Cog):
 
     @commands.command()
     async def invert(self, ctx, member: discord.Member = None):
+        for img in ctx.message.attachments():
+            image = img
         if member == None:
             member = ctx.author
-        asset = member.avatar_url_as()
+            image = member.avatar_url_as()
+        asset = image
         data = BytesIO(await asset.read())
         profilepic = Image.open(data)
         inverted = ImageOps.invert(profilepic)
