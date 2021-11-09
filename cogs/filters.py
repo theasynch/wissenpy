@@ -17,10 +17,9 @@ class Filters(commands.Cog):
             return
         if member == None:
             member = ctx.author
-            image = member.avatar_url_as()
+            asset = member.avatar_url_as()
         for img in ctx.message.attachments:
-            image = img
-        asset = image
+            asset = img
         data = BytesIO(await asset.read())
         profilepic = Image.open(data)
         inverted = ImageOps.invert(profilepic)
