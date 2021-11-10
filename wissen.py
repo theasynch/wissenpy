@@ -65,8 +65,6 @@ async def stats(ctx):
 @client.event
 async def on_message(message):
     await client.process_commands(message)
-    if message.content.startswith('Hello'):
-        await message.channel.send("hello!")
 
 
 
