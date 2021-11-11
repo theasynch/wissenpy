@@ -13,19 +13,18 @@ class Filters(commands.Cog):
 
     @commands.command()
     async def invert(self, ctx, member: discord.Member = None):
+        for img in ctx.message.attachments:
+            image = img
         if member == None:
-            if ctx.message.attachments == None:
-                member = ctx.author
-                asset = member.avatar_url_as()
-            if ctx.message.attachments != None:
-                asset = ctx.message.attachments
+            member = ctx.author
+            image = member.avatar_url_as()
+        asset = image
         data = BytesIO(await asset.read())
         profilepic = Image.open(data)
         inverted = ImageOps.invert(profilepic)
         inverted.save('invert.jpg', quality=100)
 
-        await ctx.channel.send(file = discord.File('invert.jpg'))
+        await ctx.channel.send(file=discord.File('invert.jpg'))
         os.remove('invert.jpg')
-
 def setup(client):
     client.add_cog(Filters(client))
