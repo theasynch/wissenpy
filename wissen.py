@@ -62,6 +62,8 @@ async def stats(ctx):
     embed.add_field(name = 'General Stats', value = f"```yaml\n Servers: {guild}\n Users: {users}\n Latency: {latency}\n Prefix: w? \n Client Version: v1.2.5\n Pycord Version: v1.7.3\n```",inline = False)
     embed.add_field(name = "Server Stats", value = f"```yaml\n OS: Windows\n CPU Usage: {psutil.cpu_percent()}%\n RAM Usage: {psutil.virtual_memory()[2]}%\n```")
     await ctx.send(embed=embed)
+
+
 @client.event
 async def on_message(message):
     await client.process_commands(message)
