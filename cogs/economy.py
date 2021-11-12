@@ -19,12 +19,26 @@ class Economy(commands.Cog):
         users[str(user.id)] = {}
         wallet_amt = users[str(user.id)]["wallet"]
         bank_amt = users[str(user.id)]["bank"]
-        embed = discord.Embed(
-            title=f"{ctx.author.name}'s Balance", color=0x9b870c, description = f"**Wallet** : {wallet_amt} \n **Bank** : {bank_amt}")
-            embed.set_footer(text="💵")
-            embed.timestamp = datetime.datetime.utcnow()  
+        embed = discord.Embed(title=f"{ctx.author.name}'s Balance", color=0x9b870c, description = f"**Wallet** : {wallet_amt} \n **Bank** : {bank_amt}")
+        embed.set_footer(text="💵")
+        await ctx.send(embed=embed)
 
-    await ctx.send(embed=embed)
+
+    @commands.command()
+    async def beg(self, ctx):
+        user = ctx.author
+        await open_account(ctx.author)
+        users = get_bank_data()
+        earnings = random.randrange(1500)
+
+        await ctx.send(f"Someone spared you {earnings} coins.")
+
+        users[str(user.id)]["wallet"] += earnings
+
+        with open("bank.json", "w") as f:
+            json.dump(users, f)
+
+        
 
 async def open_account(self,user):
     users = await get_bank_data()
