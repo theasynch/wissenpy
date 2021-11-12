@@ -1,4 +1,4 @@
-import discord
+'''import discord
 from discord.ext import commands
 import json
 import os
@@ -62,3 +62,4 @@ async def get_bank_data():
         
 def setup(client):
     client.add_cog(Economy(client))
+'''
