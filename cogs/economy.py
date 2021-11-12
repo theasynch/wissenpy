@@ -5,7 +5,7 @@ import os
 import datetime
 import random
 
-os.chdir("theasynchronus\\wissenpy\\cogs")
+os.chdir("https://github.com/theasynchronus/wissenpy/tree/main/cogs")
 class Economy(commands.Cog):
 
     def __init__(self, client):
