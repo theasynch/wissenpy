@@ -222,7 +222,57 @@ class Fun(commands.Cog):
         await ctx.send(text)
 
 
+    @commands.command()
+    async def hacked(self, ctx, member: discord.Member = None):
+        if member == None:
+            response = [
+                "Worst hacker ever. Choose someone to hack?",
+                "Error 502, websocket not found.",
+                "Oh no! Your keyboard just broke!! Sad that you cant hack anymore. ||Mention someone to hack dumbass||",
+                "You just hit your head on the table and had a concussion. Making you forget how to hack. Now mention someone to hack, maybe I will teach you how to",
+                "So you just stubbed your fingers and now, you cant even type. Very bad.",
+                "You just cant hack some random guy. Mention someone to hack.",
+                "Oh did I turn deaf, or..... you forgot to mention someone?",
+                "Look! I am not a part of Metaverse. Nor I am an AI engine. So please spoonfeed me the name of the guy you wanna hack!",
+                "",
+            ]
+            await ctx.send(random.choice(response))
 
+        else: 
+            user = ctx.author.display_name
+            user = user.replace(" ",'_')
+            email = ["Covid69420@brazzers.com",f"{user}-wissenf*cked@beggers.com", "wissenhasabigone@prolongers.com", "iamgae6969@nobanana.com", "nobanana@tiktok.com"]
+            passo = ["mineissmall123", "she_says_its_small", "trustno1", "i_love_my_mommy", "i_miss_banana", "phallic_is_too_large", "nope.", "1234567890", "i_cant_speak_english"]
+            rand = random.random(email)
+            ips = ["179.156.92.62", "222.28.40.75","179.178.3.75","43.211.138.85","143.194.250.58","85.218.229.27","186.156.166.202","38.154.43.115","35.255.211.6","93.207.1.121","172.211.91.242","6.234.184.21","180.58.149.178","136.37.111.144","16.223.41.163","158.9.12.216","223.42.58.12","230.99.0.222","198.3.172.240"]
+
+            message = await ctx.send("Okay, setting up variable `IP Adress`")
+            await message.edit(content="[▘]Okay, setting up variable `IP Adress`")
+            await message.edit(content="[▝]Okay, setting up variable `IP Adress`")
+            await message.edit(content="√ IP is now variable.")
+            await message.edit(content=f"{random.choice(ips)}")
+            await message.edit(content="[▘]Now, hacking users email.")
+            await message.edit(content=f"Email: {rand}")
+            await asyncio.sleep(3)
+            await message.edit(content=f"Password: {random.choice(passo)}")
+            await asyncio.sleep(3)
+            await message.edit(content=f"[▝]Hacking discord")
+            await message.edit(content="[▖]Hacking discord. **2FA bypassed**")
+            await message.edit(content="√ Discord account hacked!")
+            await message.edit(content="[▘]Fetching friend list (if there are any)")
+            await message.edit(content=f"Affirmative. No friends for discriminator `#{ctx.author.discriminator}`.")
+            await asyncio.sleep(3)
+            await message.edit(content=f"Now finding the most common word used in the **server that {user} should not be in**")
+            await asyncio.sleep(5)
+            await message.edit(content=f"Most common word: `small`")
+            await message.edit(content=f"Latest DM: `I think it is smaller than most.`")
+            await message.edit(content=f"[▖]Hacking onlyfans account.")
+            await message.edit(content=f"[▘]Hacking onlyfans account.")
+            await message.edit(content=f"√onlyfans account hacked.")
+            await message.edit(content=f"Selling this data to the government.")
+            await message.edit(content=f"Finished hacking {user}")
+
+            await ctx.send("Completely different from Dank Memer and dangerous hack was complete!")
 
 def setup(client):
     client.add_cog(Fun(client))
