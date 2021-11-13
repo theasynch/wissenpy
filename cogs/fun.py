@@ -243,7 +243,7 @@ class Fun(commands.Cog):
             user = user.replace(" ",'_')
             email = ["Covid69420@brazzers.com",f"{user}-wissenf*cked@beggers.com", "wissenhasabigone@prolongers.com", "iamgae6969@nobanana.com", "nobanana@tiktok.com"]
             passo = ["mineissmall123", "she_says_its_small", "trustno1", "i_love_my_mommy", "i_miss_banana", "phallic_is_too_large", "nope.", "1234567890", "i_cant_speak_english"]
-            rand = random.random(email)
+            rand = random.choice(email)
             ips = ["179.156.92.62", "222.28.40.75","179.178.3.75","43.211.138.85","143.194.250.58","85.218.229.27","186.156.166.202","38.154.43.115","35.255.211.6","93.207.1.121","172.211.91.242","6.234.184.21","180.58.149.178","136.37.111.144","16.223.41.163","158.9.12.216","223.42.58.12","230.99.0.222","198.3.172.240"]
 
             message = await ctx.send("Okay, setting up variable `IP Adress`")
