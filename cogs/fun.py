@@ -247,6 +247,7 @@ class Fun(commands.Cog):
             ips = ["179.156.92.62", "222.28.40.75","179.178.3.75","43.211.138.85","143.194.250.58","85.218.229.27","186.156.166.202","38.154.43.115","35.255.211.6","93.207.1.121","172.211.91.242","6.234.184.21","180.58.149.178","136.37.111.144","16.223.41.163","158.9.12.216","223.42.58.12","230.99.0.222","198.3.172.240"]
 
             message = await ctx.send("Okay, setting up variable `IP Adress`")
+            await asyncio.sleep(2)
             await message.edit(content="[▘]Okay, setting up variable `IP Adress`")
             await asyncio.sleep(2)
             await message.edit(content="[▝]Okay, setting up variable `IP Adress`")
@@ -269,9 +270,9 @@ class Fun(commands.Cog):
             await asyncio.sleep(2)
             await message.edit(content="[▘]Fetching friend list (if there are any)")
             await asyncio.sleep(2)
-            await message.edit(content=f"Affirmative. No friends for discriminator `#{ctx.author.discriminator}`.")
+            await message.edit(content=f"Affirmative. No friends for discriminator `#{member.discriminator}`.")
             await asyncio.sleep(3)
-            await message.edit(content=f"Now finding the most common word used in the **server that {user} should not be in**")
+            await message.edit(content=f"Now finding the most common word used in the **server that {member} should not be in**")
             await asyncio.sleep(5)
             await message.edit(content=f"Most common word: `small`")
             await asyncio.sleep(2)
