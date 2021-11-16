@@ -1,6 +1,8 @@
 import discord
 import random
+import urllib
 import asyncio
+import json
 from discord.ext.commands.core import check
 from discord.ext import tasks, commands
 
@@ -289,6 +291,26 @@ class Fun(commands.Cog):
             await message.edit(content=f"Finished hacking {member}")
 
             await ctx.send("Completely different from Dank Memer and dangerous hack was complete!")
+
+    @commands.command()
+    async def memer(self, ctx):
+        memeAPI = urllib.request.urlopen("https://meme-api/herokuapp.com/gimme")
+        memedata = json.load(memeAPI)
+        memeurl = memedata['url']
+        memename = memedata['title']
+        memeposter = memedata['author']
+        memesub = memedata['subreddit']
+        memelink = memedata['postLink']
+
+        embed = discord.Embed(title = memename)
+        embed.set_image(memeurl)
+        embed.set_footer(text = f"Meme by: {memeposter} | Subreddit: {memesub}")
+
+        await ctx.send(embed=embed)
+
+
+
+
 
 def setup(client):
     client.add_cog(Fun(client))
