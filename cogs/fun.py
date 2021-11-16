@@ -294,7 +294,8 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def memer(self, ctx):
-        memeAPI = urllib.request.urlopen("https://meme-api.herokuapp.com/gimme")
+        memeAPI = urllib.request.urlopen(
+            "https://meme-api.herokuapp.com/gimme")
         memedata = json.load(memeAPI)
         memeurl = memedata['url']
         memename = memedata['title']
@@ -303,7 +304,7 @@ class Fun(commands.Cog):
         memelink = memedata['postLink']
 
         embed = discord.Embed(title = memename)
-        embed.set_image(memeurl)
+        embed.set_image(url = memeurl)
         embed.set_footer(text = f"Meme by: {memeposter} | Subreddit: {memesub}")
 
         await ctx.send(embed=embed)
