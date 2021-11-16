@@ -303,7 +303,7 @@ class Fun(commands.Cog):
         memesub = memedata['subreddit']
         memelink = memedata['postLink']
 
-        embed = discord.Embed(title = memename)
+        embed = discord.Embed(title = memename, url = memelink)
         embed.set_image(url = memeurl)
         embed.set_footer(text = f"Meme by: {memeposter} | Subreddit: {memesub}")
 
