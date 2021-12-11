@@ -56,6 +56,8 @@ class Fun(commands.Cog):
         text = f'```json\n"{text}"\n```'
         await ctx.send(text)
 
+    @commands.command()
+    async def redtext(self, ctx)
 
     @commands.command()
     async def kill(self, ctx, member: discord.Member = None):
@@ -178,7 +180,7 @@ class Fun(commands.Cog):
 
 
     @commands.command()
-    async def mocker(self, ctx, *, text):
+    async def mock(self, ctx, *, text):
         test_str = text
         res = ""
         for idx in range(len(test_str)):
@@ -225,7 +227,7 @@ class Fun(commands.Cog):
 
 
     @commands.command()
-    async def hacked(self, ctx, member: discord.Member = None):
+    async def hack(self, ctx, member: discord.Member = None):
         if member == None:
             response = [
                 "Worst hacker ever. Choose someone to hack?",
@@ -293,7 +295,7 @@ class Fun(commands.Cog):
             await ctx.send("Completely different from Dank Memer and dangerous hack was complete!")
 
     @commands.command()
-    async def memer(self, ctx):
+    async def meme(self, ctx):
         memeAPI = urllib.request.urlopen(
             "https://meme-api.herokuapp.com/gimme")
         memedata = json.load(memeAPI)

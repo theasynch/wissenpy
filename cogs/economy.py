@@ -8,7 +8,7 @@ import random
 '''os.chdir("https://github.com/theasynchronus/wissenpy/tree/main/cogs")'''
 class Economy(commands.Cog):
 
-   ''' def __init__(self, client):
+    def __init__(self, client):
         self.client = client
  
     @commands.command()

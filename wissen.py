@@ -86,7 +86,10 @@ async def ping(ctx):
     await ctx.send('ping')
 
 
-
+@client.command()
+async def guilds(ctx):
+    for guild in client.guilds():
+        await ctx.send(guild.names)
 
 
 
