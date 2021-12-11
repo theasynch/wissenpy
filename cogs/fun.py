@@ -56,8 +56,7 @@ class Fun(commands.Cog):
         text = f'```json\n"{text}"\n```'
         await ctx.send(text)
 
-    @commands.command()
-    async def redtext(self, ctx)
+
 
     @commands.command()
     async def kill(self, ctx, member: discord.Member = None):
