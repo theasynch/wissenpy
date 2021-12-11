@@ -1,11 +1,11 @@
-import discord
+'''import discord
 from discord.ext import commands
 import json
 import os
 import datetime
 import random
 
-'''os.chdir("https://github.com/theasynchronus/wissenpy/tree/main/cogs")'''
+os.chdir("https://github.com/theasynchronus/wissenpy/tree/main/cogs")
 class Economy(commands.Cog):
 
     def __init__(self, client):
@@ -62,3 +62,5 @@ async def get_bank_data():
         
 def setup(client):
     client.add_cog(Economy(client))
+
+'''
