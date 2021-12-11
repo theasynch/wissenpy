@@ -58,9 +58,8 @@ async def open_account(self,user):
 async def get_bank_data():
     with open("bank.json", "r") as f:
         users = json.load(f)
-    return users'''
+    return users
         
 def setup(client):
     client.add_cog(Economy(client))
-
 '''
