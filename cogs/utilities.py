@@ -101,7 +101,13 @@ class Utilities(commands.Cog):
         return text.translate(table)
 
 
+    @commands.command()
+    async def ss(self, ctx, link):
+        embed = discord.Embed(title = "Website Screenshot for: {}".format(link))
+        embed.set_image(
+            url=f"https://image.thum.io/get/width/1920/crop/675/maxAge/1/noanimate/{link}")
 
+        await ctx.send(embed=embed)
 
 
 

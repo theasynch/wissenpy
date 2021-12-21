@@ -88,8 +88,10 @@ async def ping(ctx):
 
 @client.command()
 async def guilds(ctx):
+    list = []
     for guild in client.guilds():
-        await ctx.send(guild.name)
+        list.append(guild)
+        print(list)
 
 
 
