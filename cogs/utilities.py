@@ -110,18 +110,12 @@ class Utilities(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def embed(self, ctx):
-        s = ctx.message.content
-        parts = s.split(" | ")
-        title = parts[0]
-        description = parts[1]
-        colors = parts[2]
-        color = int('0x' + colors)
-        int(color, 16)
-        image = parts[3]
-        embed = discord.Embed(title = title, description=description, color=colors)
-        if image is None:
-            embed.set_image(url = image)
+    async def embed(self, ctx, title, description, color, image:None):
+        embed  = discord.Embed(title = title, description = description, color = color)
+        if image == None:
+            return
+        for i in image:
+            embed.set_image(url= image)
         await ctx.send(embed=embed)
 
 
