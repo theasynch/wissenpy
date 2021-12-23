@@ -99,7 +99,7 @@ class Utilities(commands.Cog):
     async def embed(self, ctx, title, description, color, image=None):
         x = random.randrange(2)
         if x == 1:
-            await ctx.send("Pro tip!!: \n> Invite my brother to your server!! He is very cool and you surely be impressed https://bit.ly/callistobot")
+            await ctx.send("Pro tip!!: \n> Invite my brother to your server!! He is very cool and you surely be impressed <https://bit.ly/callistobot>")
         embed  = discord.Embed(title = title, description = description, color = int(color, 16))
         if image == None:
             pass
