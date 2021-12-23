@@ -17,7 +17,7 @@ class Utilities(commands.Cog):
     async def remind(self, ctx, time, *, task = None,):
         x = random.randrange(2)
         if x == 1:
-            await ctx.send("Pro tip!!: \n Invite my brother to your server!! He is very cool and you surely be impressed (link)")
+            await ctx.send("Pro tip!!: \n> Invite my brother to your server!! He is very cool and you surely be impressed https://bit.ly/callistobot")
         if task == None:
             task = "something"
         def convert(time):
@@ -86,6 +86,9 @@ class Utilities(commands.Cog):
 
     @commands.command()
     async def ss(self, ctx, link):
+        x = random.randrange(2)
+        if x == 1:
+            await ctx.send("Pro tip!!: \n> Invite my brother to your server!! He is very cool and you surely be impressed https://bit.ly/callistobot")
         embed = discord.Embed(title = "Website Screenshot for: {}".format(link))
         embed.set_image(
             url=f"https://image.thum.io/get/width/1920/crop/675/maxAge/1/noanimate/{link}")
@@ -94,12 +97,17 @@ class Utilities(commands.Cog):
 
     @commands.command()
     async def embed(self, ctx, title, description, color, image=None):
+        x = random.randrange(2)
+        if x == 1:
+            await ctx.send("Pro tip!!: \n> Invite my brother to your server!! He is very cool and you surely be impressed https://bit.ly/callistobot")
         embed  = discord.Embed(title = title, description = description, color = int(color, 16))
         if image == None:
             pass
         else:
             embed.set_image(url = image)
         await ctx.send(embed=embed)
+
+
 
 
 
