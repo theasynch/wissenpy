@@ -111,7 +111,7 @@ class Utilities(commands.Cog):
 
     @commands.command()
     async def embed(self, ctx, title, description, color, image=None):
-        embed  = discord.Embed(title = title, description = description, color = int(color))
+        embed  = discord.Embed(title = title, description = description, color = int(color, 16))
         if image == None:
             pass
         else:
