@@ -15,7 +15,7 @@ class Utilities(commands.Cog):
 
     @commands.command(name = 'remind', aliases = ['rm', 'remindme', 'timer'])
     async def remind(self, ctx, time, *, task = None,):
-        x = random.randrange(1)
+        x = random.randrange(2)
         if x == 1:
             await ctx.send("Pro tip!!: \n Invite my brother to your server!! He is very cool and you surely be impressed (link)")
         if task == None:
