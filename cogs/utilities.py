@@ -1,4 +1,5 @@
 import discord
+import random
 from discord import Spotify
 from PIL import Image, ImageFont, ImageDraw
 import requests
@@ -12,29 +13,11 @@ class Utilities(commands.Cog):
         self.client = client
 
 
-
-
-
-    @commands.command()
-    async def afk(self,ctx, *, reason='No reason Provided'):
-        member = ctx.author
-        if member.id in afks.keys():
-            afks[member.id] = "afk"
-
-        else:
-            try:
-                member.edit(nick = f'[AFK]{member.display_name}')
-            except:
-                pass
-        afks[member.id] =reason
-        embed = discord.Embed(title = "Member is AFK", description = f'{member.mention} has gone AFK', color = member.color)
-        embed.set_thumbnail(url = member.avatar_url)
-        embed.set_author(name = self.client.name, icon_url = self.client.avatar_url)
-        embed.add_field(name = 'AFK Note', value = reason)
-        await ctx.send(embed=embed)
-
     @commands.command(name = 'remind', aliases = ['rm', 'remindme', 'timer'])
     async def remind(self, ctx, time, *, task = None,):
+        x = random.randrange(1)
+        if x == 1:
+            await ctx.send("Pro tip!!: \n Invite my brother to your server!! He is very cool and you surely be impressed (link)")
         if task == None:
             task = "something"
         def convert(time):
