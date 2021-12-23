@@ -117,6 +117,7 @@ class Utilities(commands.Cog):
         description = parts[1]
         colors = parts[2]
         color = int('0x' + colors)
+        int(color, 16)
         image = parts[3]
         embed = discord.Embed(title = title, description=description, color=colors)
         if image is None:
