@@ -110,7 +110,7 @@ class Utilities(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def embed(self, ctx, title, description, color, image:None):
+    async def embed(self, ctx, title, description, color, image=None):
         embed  = discord.Embed(title = title, description = description, color = color)
         if image == None:
             pass
