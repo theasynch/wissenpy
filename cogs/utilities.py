@@ -113,7 +113,7 @@ class Utilities(commands.Cog):
     async def embed(self, ctx, title, description, color, image:None):
         embed  = discord.Embed(title = title, description = description, color = color)
         if image == None:
-            return
+            pass
         for i in image:
             embed.set_image(url= image)
         await ctx.send(embed=embed)
