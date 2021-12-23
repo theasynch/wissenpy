@@ -114,8 +114,8 @@ class Utilities(commands.Cog):
         embed  = discord.Embed(title = title, description = description, color = color)
         if image == None:
             pass
-        for i in image:
-            embed.set_image(url= image)
+        else:
+            embed.set_image(url = image)
         await ctx.send(embed=embed)
 
 
