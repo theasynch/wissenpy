@@ -118,7 +118,7 @@ class Utilities(commands.Cog):
         colors = [2]
         image = parts[3]
         embed = discord.Embed(title = title, description=description, color=colors)
-        for i in image:
+        if image is None:
             embed.set_image(url = image)
         await ctx.send(embed=embed)
 
