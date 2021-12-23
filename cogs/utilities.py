@@ -115,7 +115,7 @@ class Utilities(commands.Cog):
         parts = s.split(" | ")
         title = parts[0]
         description = parts[1]
-        colors = [2]
+        colors = int(parts[2])
         image = parts[3]
         embed = discord.Embed(title = title, description=description, color=colors)
         if image is None:
