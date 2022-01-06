@@ -107,6 +107,17 @@ class Utilities(commands.Cog):
             embed.set_image(url = image)
         await ctx.send(embed=embed)
 
+    @commands.command()    
+    async def simple_interest(self, ctx, amt:int, time:int, rate:int):
+        si = (amt*time*rate)/100
+        total = si+amt
+        embed = discord.Embed(
+            title = "Simple Interest Calculator", 
+            description = f"> The principle amount was: `{amt}`\n> The rate of interest was: `{rate}`\n> The time period was: `{time}`\nThe simple interest will be: {si}\n Similarly the total amount with interest will be: {total}",
+            color = 0x00ff00
+        )
+        await ctx.send(embed=embed)
+
 
 
 
