@@ -310,5 +310,18 @@ class Fun(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def ping(self, ctx, member: discord.Member = None):
+        if member is None:
+            await ctx.send("Nah fam, I dont think you shld be doin this.")
+        else:
+            await ctx.send(f"Never gonna give {member.mention}up")
+            await ctx.send(f"Never gonna let {member.mention} down ")
+            await ctx.send(f"Never gonna run around and dessert {member.mention}")
+
+
+
+
+
 def setup(client):
     client.add_cog(Fun(client))

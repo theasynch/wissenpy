@@ -118,6 +118,14 @@ class Utilities(commands.Cog):
         )
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def ci(self, ctx, amt:int, time:int, rate:int):
+        Amount = amt * (pow((1 + rate / 100), time))
+        CI = Amount - amt
+
+        embed = discord.Embed(title = "")
+
+
 
 
 
