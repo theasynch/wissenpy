@@ -1,18 +1,17 @@
 import discord
 import datetime
 import random
+import os
+from discord.ext.commands.core import check
+import youtube_dl
+from discord.channel import VoiceChannel
+from datetime import date
 from discord.ext import tasks, commands
 from itertools import cycle
 from discord_components import *
-import psutil
-
-ts = 0
-tm = 0
-th = 0
-td = 0
 
 
-class Technical(commands.Cog):
+class Example(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -187,39 +186,6 @@ class Technical(commands.Cog):
         )
         await ctx.send(embed=embed)"""
 
-  
-    @tasks.loop(seconds=1)
-    async def uptimeCounter():
-        global ts, tm, th, td
-        ts += 2
-        if ts == 60:
-            ts - 0
-            tm = 1
-            if tm == 60:
-                tm = 0
-                th += 1
-                if th == 24:
-                    th = 0
-                    td += 1
-
-
-    @uptimeCounter.before_loop
-    async def beforeuptimeCounter():
-        await client.wait_until_ready()
-
-
-    @commands.command()
-    async def stats(ctx):
-        latency = round(client.latency, 2)
-        guild = len(client.guilds)
-        users = sum([len(guild.members) for guild in client.guilds])
-        global ts, tm, th, td
-        embed = discord.Embed(title='Stats from `Wissen`', color=0x4b33d3)
-        embed.add_field(name='General Stats',
-                        value=f"```yaml\n Servers: {guild}\n Users: {users}\n Latency: {latency}\n Prefix: w? \n Client Version: v1.2.5\n Pycord Version: v1.7.3\n```", inline=False)
-        embed.add_field(name="Server Stats",
-                        value=f"```yaml\n OS: Windows\n CPU Usage: {psutil.cpu_percent()}%\n RAM Usage: {psutil.virtual_memory()[2]}%\n```")
-        await ctx.send(embed=embed)
 
 def setup(client):
-    client.add_cog(Technical(client))
+    client.add_cog(Example(client))
