@@ -125,7 +125,7 @@ class Utilities(commands.Cog):
         local_variables = {
             "discord": discord,
             "commands": commands,
-            "bot": commandsx,
+            "bot": commands,
             "ctx": ctx,
             "channel": ctx.channel,
             "author": ctx.author,
