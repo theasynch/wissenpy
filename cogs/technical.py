@@ -1,17 +1,12 @@
 import discord
 import datetime
 import random
-import os
-from discord.ext.commands.core import check
-import youtube_dl
-from discord.channel import VoiceChannel
-from datetime import date
 from discord.ext import tasks, commands
 from itertools import cycle
 from discord_components import *
+import psutil
 
 ts = 0
-
 tm = 0
 th = 0
 td = 0
