@@ -75,17 +75,6 @@ class Utilities(commands.Cog):
 
         await ctx.author.send(embed=time_over)
 
-    @commands.command()
-    async def caeser_cipher(self, ctx, text, shift, alphabets):
-        def shift_alphabet(alphabet):
-            return alphabet[shift:] + alphabet[:shift]
-
-        shifted_alphabet = tuple(map(shift_alphabet, alphabets))
-        final_alphabet = ''.join(alphabets)
-        final_shifted_alphabet = ''.join(shifted_alphabet)
-        table = str.maketrans(final_alphabet, final_shifted_alphabet)
-        return text.translate(table)
-
 
     @commands.command()
     async def ss(self, ctx, link):
@@ -136,7 +125,7 @@ class Utilities(commands.Cog):
         local_variables = {
             "discord": discord,
             "commands": commands,
-            "bot": commands,
+            "bot": commandsx,
             "ctx": ctx,
             "channel": ctx.channel,
             "author": ctx.author,

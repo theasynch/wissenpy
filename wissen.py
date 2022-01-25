@@ -10,9 +10,8 @@ from datetime import date
 from discord.ext import tasks, commands
 from itertools import cycle
 from discord_components import *
-from traceback import format_exception
 import psutil
-from util import clean_code, Pag
+
 
 
 ts = 0
