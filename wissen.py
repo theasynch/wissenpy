@@ -1,12 +1,6 @@
 import discord
 import datetime
 import os
-import io
-import contextlib
-import textwrap
-import logging
-from discord import message
-from datetime import date
 from discord.ext import tasks, commands
 from itertools import cycle
 from discord_components import *
