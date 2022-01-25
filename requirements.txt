@@ -4,3 +4,4 @@ psutil==5.8.0
 pillow==8.3.2
 requests==2.26.0
 youtube_dl==2021.6.6
+buttons==1.7.3
