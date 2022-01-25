@@ -2,10 +2,13 @@ import discord
 import random
 from discord import Spotify
 from PIL import Image, ImageFont, ImageDraw
-import requests
+import io
 from discord.ext import commands
 import asyncio
-import string
+import textwrap
+from util import clean_code, Pag
+from traceback import format_exception
+import contextlib
 
 class Utilities(commands.Cog):
 
@@ -127,13 +130,13 @@ class Utilities(commands.Cog):
 
     @commands.command(name="eval", aliases=["exec"])
     @commands.is_owner()
-    async def _eval(ctx, *, code):
+    async def _eval(self, ctx, *, code):
         code = clean_code(code)
 
         local_variables = {
             "discord": discord,
             "commands": commands,
-            "bot": client,
+            "bot": commands,
             "ctx": ctx,
             "channel": ctx.channel,
             "author": ctx.author,
