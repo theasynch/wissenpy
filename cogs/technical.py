@@ -208,7 +208,7 @@ class Technical(commands.Cog):
         await client.wait_until_ready()
 
 
-    @client.command()
+    @commands.command()
     async def stats(ctx):
         latency = round(client.latency, 2)
         guild = len(client.guilds)
