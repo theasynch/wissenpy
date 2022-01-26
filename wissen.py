@@ -94,7 +94,6 @@ async def guilds(ctx):
 
 
 
-
 # buttons array
 buttons = [
     [
