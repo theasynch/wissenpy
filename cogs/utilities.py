@@ -1,14 +1,20 @@
-import discord
+
+#In-built imports
 import random
-from discord import Spotify
-from PIL import Image, ImageFont, ImageDraw
-import io
+
+#Important imports
+import discord
 from discord.ext import commands
+
+#Other Required Imports
+import io
 import asyncio
 import textwrap
 from util import clean_code, Pag
 from traceback import format_exception
 import contextlib
+
+
 
 class Utilities(commands.Cog):
 
@@ -76,6 +82,8 @@ class Utilities(commands.Cog):
         await ctx.author.send(embed=time_over)
 
 
+    
+    #Command that gives the screenshot of the website, real time.
     @commands.command()
     async def ss(self, ctx, link):
         x = random.randrange(2)
@@ -87,6 +95,8 @@ class Utilities(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    
+    #Command that creates a custom embed.
     @commands.command()
     async def embed(self, ctx, title, description, color, image=None):
         x = random.randrange(2)
@@ -99,10 +109,12 @@ class Utilities(commands.Cog):
             embed.set_image(url = image)
         await ctx.send(embed=embed)
 
+    
+    #Command for calculating simple interest, mere pass of time.
     @commands.command()    
     async def simple_interest(self, ctx, amt:int, time:int, rate:int):
         si = (amt*time*rate)/100
-        total = si+amt
+        total = si + amt
         embed = discord.Embed(
             title = "Simple Interest Calculator", 
             description = f"> The principle amount was: `{amt}`\n> The rate of interest was: `{rate}`\n> The time period was: `{time}`\nThe simple interest will be: {si}\n Similarly the total amount with interest will be: {total}",
@@ -110,13 +122,22 @@ class Utilities(commands.Cog):
         )
         await ctx.send(embed=embed)
 
+    
+    #Command for calculating compound interest, again a mere pass of time.
     @commands.command()
     async def ci(self, ctx, amt:int, time:int, rate:int):
         Amount = amt * (pow((1 + rate / 100), time))
         CI = Amount - amt
 
-        embed = discord.Embed(title = "")
+        embed = discord.Embed(
+            title = "Compound Interest Calculator",
+            description = f"> The principle amount was: `{amt}`\n> The rate of interest was: `{rate}`\n> The time period was: `{time}`\nThe compound interest will be: {CI}\n Similarly the total amount with interest will be: {Amount}",
+            color = 0x00ff00,
+            )
+        await ctx.send(embed=embed)
 
+    
+    #Eval Command! Fun, but only for MY use :)
     @commands.command(name="eval", aliases=["exec"])
     @commands.is_owner()
     async def _eval(self, ctx, *, code):
@@ -155,8 +176,6 @@ class Utilities(commands.Cog):
         )
 
         await pager.start(ctx)
-
-
 
 
 

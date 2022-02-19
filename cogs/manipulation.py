@@ -94,5 +94,7 @@ class Manipulation(commands.Cog):
         img.save("armore.png")
         await ctx.send(file = discord.File("armore.png"))
         os.remove("armore.png")
+
+        
 def setup(client):
     client.add_cog(Manipulation(client))
