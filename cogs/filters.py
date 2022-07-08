@@ -26,5 +26,18 @@ class Filters(commands.Cog):
 
         await ctx.channel.send(file=discord.File('invert.jpg'))
         os.remove('invert.jpg')
+
+
+    @commands.command()
+    async def gay(self, ctx, member: discord.Member = None):
+        mask_img = Image.open('lgbtq.png')
+        mask_img.putalpha(0.5)
+        if member == None:
+            member = ctx.author
+            bg_img = member.avatar_url_as()
+        asset = bg_img
+        data = BytesIO(await asset.read())
+        bg_img = Image.open(data)
+
 def setup(client):
     client.add_cog(Filters(client))

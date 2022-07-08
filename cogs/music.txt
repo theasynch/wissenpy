@@ -1,0 +1,55 @@
+
+#--------------- MUSIC COG ---------------#
+
+import discord
+from discord.ext import commands
+import os
+import wavelink
+from wavelink.ext import spotify 
+
+
+class Music(commands.Cog):
+
+    def __init__(self, client):
+        self.client = client
+
+    @commands.Cog.listener()
+    async def on_ready(self, client):
+        client.loop.create_task(self.node_connect())
+    
+
+    @commands.Cog.listener()
+    async def on_wavelink_node_ready(node: wavelink.Node):
+        print(f'Node {node.indentifier} is ready!')
+
+    async def node_connect(client):
+        await client.wait_until_ready()
+        await wavelink.NodePool.create_node(bot=client, host='lavalink.islantay.tk', port=8880, password='waifufufufu', https=True, spotify_client=spotify.SpotifyClient(client_id=" 358a87daa50c4ae58ac08bd789b42a9a", cleint_secret="5cfa075bc7b740c7bb682ab6ed5184ba"))
+
+    @commands.command()    
+    async def play(self, ctx: commands.Context, *, search:str):
+        if not ctx.voice_client:
+            vc: wavelink.Player = await ctx.author.voice.channel.connect(cls=wavelink.Player)
+        elif not getattr(ctx.author.voice, "channel", None):
+            return await ctx.send("You are not in a voice channel.")
+        else:
+            vc.wavelink.Player = ctx.voice_client
+
+        if vc.queue.is_empty and not vc.is_playing():
+            try:
+                track = await spotify.SpotifyTrack.search(query=search, return_first=True)
+                await vc.play(track)
+                await ctx.send(f"Playing `{track.title}`")
+            except Exception as e:
+                await ctx.send("Please send a spotify song url")
+                return print(e)
+        else:
+            await vc.queue.put_wait(search)
+            await ctx.send(f"Added `{search}` to the queue")
+        vc.ctx = ctx
+        if vc.loop:
+            setattr(vc, "loop", False)
+
+
+def setup(client):
+    client.add_cog(Music(client))

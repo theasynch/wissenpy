@@ -12,7 +12,7 @@ class Example(commands.Cog):
 
     # events
     @commands.Cog.listener()
-    async def on_ready(self):
+    async def on_ready():
         print('Bot is online 🔥')
 
     # commands
