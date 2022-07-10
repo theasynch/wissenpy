@@ -24,9 +24,7 @@ class Utilities(commands.Cog):
 
     @commands.command(name = 'remind', aliases = ['rm', 'remindme', 'timer'])
     async def remind(self, ctx, time, *, task = None,):
-        x = random.randrange(2)
-        if x == 1:
-            await ctx.send("Pro tip!!: \n> Invite my brother to your server!! He is very cool and you surely be impressed https://bit.ly/callistobot")
+         
         if task == None:
             task = "something"
         def convert(time):
@@ -82,13 +80,12 @@ class Utilities(commands.Cog):
         await ctx.author.send(embed=time_over)
 
 
+
     
     #Command that gives the screenshot of the website, real time.
     @commands.command()
     async def ss(self, ctx, link):
-        x = random.randrange(2)
-        if x == 1:
-            await ctx.send("Pro tip!!: \n> Invite my brother to your server!! He is very cool and you surely be impressed https://bit.ly/callistobot")
+         
         embed = discord.Embed(title = "Website Screenshot for: {}".format(link))
         embed.set_image(
             url=f"https://image.thum.io/get/width/1920/crop/675/maxAge/1/noanimate/{link}")

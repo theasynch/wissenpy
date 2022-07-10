@@ -16,8 +16,8 @@ intents = discord.Intents.default()
 intents.members = True
 client = commands.Bot(command_prefix='w?', intents=intents)
 client.remove_command('help')
-status = cycle(['Study Wars', 'for: w?help', 'Upcoming Exams', 'for: w?help', 'For Your Doubts',
-               'for: w?help', 'Large Cardinal Project', 'for: w?help', 'For An Answer to Musks Question', 'for: w?help', 'you watching this :P', 'for: w?help'])
+status = cycle(['a pin in haystack', 'for: w?help', 'the invite button', 'for: w?help', 'Interstellar',
+               'for: w?help', 'the cogs turn', 'for: w?help', 'the stars ✨', 'for: w?help', 'you watching this :P', 'for: w?help'])
 
 print(client)
 

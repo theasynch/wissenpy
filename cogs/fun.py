@@ -310,8 +310,18 @@ class Fun(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def howgay(self, ctx, member: discord.Member = None):
+        if member == None:
+            member = ctx.author
+        embed = discord.Embed(
+            title = 'gayr8 Machine',
+            description = f'{member.display_name} is {round(member.guild.me.nickname_position / member.guild.member_count * 100, 2)}% gayr8',
+            color = discord.Color.blue()
 
- 
+
+        )
+        await ctx.send(embed=embed)
 
 
 
