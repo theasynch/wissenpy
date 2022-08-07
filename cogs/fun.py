@@ -1,4 +1,6 @@
 import discord
+import requests
+from time import time
 import random
 import urllib
 import asyncio
@@ -323,6 +325,35 @@ class Fun(commands.Cog):
         )
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def typerace(self, ctx):
+        url = 'https://animechan.vercel.app/api/random'
+        data = requests.get(url).json()
+
+        character = data['character']
+        quote = data['quote']
+        words  =  (len(quote.split()))
+        await ctx.send("Type the follwing as fast as possible")
+        await ctx.send(f"{quote}")
+
+        def check(m):
+            return m.content == quote and m.channel == ctx.channel
+
+        msg = await self.client.wait_for('message', check=check, timeout = 90)
+        try:
+            start = time()
+            end = time()
+            if msg == quote:
+                total = round(end-start, 2)
+                await ctx.send(f"{ctx.author.mention}, you typed that correctly!")
+                await ctx.send("Your time was %s seconds." % total)
+                total = int(total)/60
+                await ctx.send("Speed was "+(str(words//total)))
+            elif msg!=quote:
+                await ctx.send("You typed that wrong . _.")
+
+        except TimeoutError:
+            await ctx.send("It took way long for you to respong :(")
 
 
 
